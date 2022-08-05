@@ -1,7 +1,7 @@
 {
   "name": "multer-uploader",
-  "version": "1.0.5",
-  "description": "multer.js is a file upload helper which is built on top of multer",
+  "version": "1.0.6",
+  "description": "multer-uploader is a nodejs file upload helper which is built on top of multer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,18 +11,21 @@
     "url": "git+https://github.com/hasan1119/multer.js.git"
   },
   "keywords": [
-    "multer.js",
-    "hasan1119",
+    "multer-uploader",
+    "multer",
+    "nodeJS",
+    "expressJS",
     "codingclub",
     "codingclubbd",
-    "codingclubbangladesh"
+    "codingclubbangladesh",
+    "coding club bangladesh - youtube channel"
   ],
   "author": "Md. Rokibul Hasan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hasan1119/multer.js/issues"
+    "url": "https://github.com/hasan1119/multer-uploader/issues"
   },
-  "homepage": "https://github.com/hasan1119/multer.js#readme",
+  "homepage": "https://github.com/hasan1119/multer-uploader#readme",
   "dependencies": {
     "http-errors": "^2.0.0",
     "multer": "^1.4.5-lts.1"
