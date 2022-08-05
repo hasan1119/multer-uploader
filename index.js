@@ -4,10 +4,11 @@ const fs = require('fs');
 const multer = require('multer');
 const createHttpError = require('http-errors');
 
-function multerUpload(uploadDir, maxFileSize, maxNumberOfFile, allowFileTypesArray) {
+function upload(directory, maxFileSize = 10000, allowFileTypesArray=[]) {
 
+    let  uploadDir =  directory ? directory : './uploads';
     // upload dir 
-    const dir = fs.mkdirSync(uploadDir, {
+    const dir = directory && fs.mkdirSync(uploadDir, {
         recursive: true
     }) || uploadDir;
 
@@ -27,7 +28,7 @@ function multerUpload(uploadDir, maxFileSize, maxNumberOfFile, allowFileTypesArr
                 .split(' ')
                 .join('-') + '-' + Date.now();
 
-            cb(null, fileName, fileExt)
+            cb(null, fileName + fileExt)
         }
     })
 
@@ -38,16 +39,14 @@ function multerUpload(uploadDir, maxFileSize, maxNumberOfFile, allowFileTypesArr
             fileSize: maxFileSize
         },
         fileFilter: (req, file, cb) => {
-            if (req.files.length > maxNumberOfFile) {
-                cb(createHttpError(404, `Maximum ${maxNumberOfFile} files are allowed`))
-            } else {
+
                 if (allowFileTypesArray.includes(file.mimetype)) {
                     cb(null, true)
                 } else {
                     cb(createHttpError(404, `Only ${allowFileTypesArray.join(" ,")} are allowed`))
                 }
 
-            }
+            
         }
     })
 
@@ -56,4 +55,4 @@ function multerUpload(uploadDir, maxFileSize, maxNumberOfFile, allowFileTypesArr
 }
 
 
-module.exports = multerUpload;
+module.exports = upload;

@@ -1,6 +1,6 @@
 {
-  "name": "multer.js",
-  "version": "1.0.0",
+  "name": "multer-uploader",
+  "version": "1.0.5",
   "description": "multer.js is a file upload helper which is built on top of multer",
   "main": "index.js",
   "scripts": {
